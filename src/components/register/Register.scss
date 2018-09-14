@@ -1,0 +1,107 @@
+.Register {
+    padding-top: 3rem;
+    font-size: 0.8rem;
+    width: 90%;
+    .boxCon {
+        background: white;
+        .group-input {
+            margin: 0.5rem 0;
+            line-height: 2.2rem;
+            height: 2.2rem;
+            width: 100%;
+            & > input, & > button {
+                display: inline-block;
+                border: 0;
+                outline: none;
+                border-radius: 0.15rem;
+                height: 100%;
+            }
+            & > input {
+                width: 100%;
+                padding-left: 0.8rem;
+                box-sizing: border-box;
+                border: 0.05rem solid #f4f4f4;
+            }
+            & > input[name='phone'] {
+                width: 66%;
+            }
+            & > button[name='send-verification-code-btn'] {
+                margin-left: 4%;
+                width: 30%;
+            }
+            & > button {
+                background: #00bc8d;
+                color: white;
+                width: 100%;
+                cursor: pointer;
+            }
+            & > button[disabled] {
+                background: #e4e4e4;
+                color: white;
+            }
+        }
+        .accept-agreement {
+            position: relative;
+            height: 1rem;
+            label {
+                font-size: 0.7rem;
+                
+                input[type='checkbox'] {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    opacity: 0;
+                }
+                .agreementBtn {
+                    position: relative;
+                    top: 2px;
+                    &:before {
+                        content: "";
+                        width: 14px;
+                        height: 14px;
+                        border: 1px solid #ccc;
+                        border-radius: 2px;
+                        display: inline-block;
+                    }
+                    &.checked:before{
+                        background: #00bc8d;
+                    }
+                }
+                a {
+                    color: #00bc8d;
+                    font-size: 0.65rem;
+                }
+            }
+        }
+        .errMsg {
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #cc1616;
+        }
+    }
+
+    .geetest-mask-box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .5);
+        width: 100%;
+        height: 100%;
+        display: none;
+        .gt_holder {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-30%);
+        }
+        
+    }
+}
+
+
