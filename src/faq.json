@@ -1,0 +1,23 @@
+{   
+    "jQuery": {
+        "title": "jquery",
+        "list": []
+    },
+    "angularJs": {
+        "title": "angularjs",
+        "list":  ["AngularJS 这个框架比较重且兼容性一般般，比起jquery1.xIE全兼容，这货只能兼容IE8及以上（对于IE8以下版本，使用ng IE补丁插件毕竟是费力不讨好的事情），但无可否认它是能明显提高前端开发效率的工具。它比较适合做前端后台管理界面、或ERP类web app（例如：worktile就是用ng实现）。有一点必须承认，AngularJS最吸引人的是它的编程思想，它把很多后端的思想比如“依赖注入、指令”应用到前端，这使得它的门槛变得有点高，所以初学者不建议直接去学习AngularJS（因为你根本不会用，哈哈）"]
+    },
+    "react": {
+        "title": "react",
+        "list": ["React是脸谱开发的一种JavaScript框架，它的唯一目标就是构建高性能的用户接口。开发React就是为了解决其他JavaScript框架都未能解决的一个问题-高效地渲染大型数据集。它采用了虚拟文档对象模型(DOM)和拼接机制，这样，每一次对网页做了更改后，React就只更新与更改相关的部分，而不需要重新对整个站点进行渲染。<br/>最为最近很火的一个前端解决方案，这货一开始只是Facebook 内部使用的UI库（类似bootstrap），后来慢慢发展成一整套前后端通吃的 Web App 解决方案（野心很大，让现在的Hybrid 之流怎么活？估计之前facebook HTML5大跃进失败了，想要用它继续完成三端同步的梦想），所以这框架适合Web移动开发。（据说ReactJS项目组能调用android ios一些不为人知的接口，从而显著提高android ios原生项目效率）目前使用react在实际应用中，必须使用其扩展插件，而使用了插件的reactjs的确算是重框架React 的大小和 Angular 相当，但 Angular 是一个完整的应用框架。React 显而易见的臃肿，但是你只获得了很少的功能"]
+    },
+    "css3": {
+        "title": "css3",
+        "list": ["transform & translate, translate移动是transform的方法， transform是对2D 和 3D的转换；", "允许css属性在一定的时间内进行平滑的过渡，动画效果 transtion: all ease-in/ease-out .3s;"]
+    },
+    "html5": {
+        "title": "html5",
+        "list": ["https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5", "HTML5 是定义html标准的最新版本, 该术语表示两个不同的概念:<br/>它是一个新版本html语言，具有新的元素，属性和行为;<br/>它有更大的技术集，允许更多样化和强大的网站和应用程序", "<p>语义化：能够让你的标签更加恰当描述你的内容;</p><p>连通性：能够让你和服务器之前通过新技术进行通信</p><p>离线&存储：能够让网页在客户端存储数据（cookie，localstorage，sessionstorage）以及更高效的离线运行；</p><p>多媒体：video audio</p><p>2D/3D 绘图 & 效果：提供了一个更加分化范围的呈现选择;</p><p>性能 & 集成：提供了非常显著的性能优化和更有效的计算机硬件使用;</p><p>设备访问 Device Access：能够处理各种输入和输出设备;</p><p>样式设计</p>"]
+    }
+   
+}

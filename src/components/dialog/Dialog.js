@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import classNames from 'classnames';
 
-import './Dialog.scss';
+// import './Dialog.scss';
 
 @inject('dialog')
 @observer

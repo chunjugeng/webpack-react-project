@@ -1,11 +1,9 @@
-
-const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
-const ClearWebpackPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const distServer = path.resolve('dist-server');
+const distServer = path.resolve(__dirname, 'dist-server');
 module.exports = {
     entry: {
         prerender: path.resolve(__dirname, './prerender')
@@ -47,9 +45,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new ClearWebpackPlugin('dist-server'),
+        new CleanWebpackPlugin(distServer),
         new webpack.DefinePlugin({
-            __GIOID__: 11212112,
             __client__: false
         }),
         new webpack.ProvidePlugin({

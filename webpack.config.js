@@ -2,15 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const ClearWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const pkg = require('./package.json');
 const argv = require('yargs').argv;
 const isDev = argv.mode === 'development';
 const isProd = !isDev;
 const entryHtml = path.resolve(__dirname, './src/index.js');
 const dist = path.resolve(__dirname, './dist');
+require("babel-polyfill");
 
 const config = require('./routerConfig');
 const srcRoot = fs.readdirSync(path.resolve('./src/modules'));
@@ -34,7 +37,12 @@ if (srcRoot.length) {
                     hash: false,
                     filename: `${outputDir}/index.html`,
                     template: getPath(`./src/modules/${srcModule}/index.html`),
-                    chunks: [srcModule]
+                    chunks: [srcModule],
+                    minify: {
+                        removeComments: isProd,
+                        collapseWhitspace: isProd,
+                        minifyJS: isProd
+                    }
                 })
             );
         }
@@ -43,6 +51,7 @@ if (srcRoot.length) {
 
 let webpackConfig = {
     entry,
+    devtool: isDev ? 'source-map' : false ,
     output: {
         path: dist,
         publicPath: '/',
@@ -64,10 +73,11 @@ let webpackConfig = {
                 },
                 include: path.join(__dirname, './src'),
             },
+           
             {
                 test: /\.(css|scss|sass)$/,
                 use: [
-                    {loader: 'style-loader'},
+                    MiniCssExtractPlugin.loader,
                     {loader: 'css-loader'},
                     {
                         loader: 'postcss-loader',
@@ -75,25 +85,35 @@ let webpackConfig = {
                             ident: 'postcss',
                             plugins: ()=> [
                                 require('postcss-flexbugs-fixes'),
-                                autoprefixer()
+                                autoprefixer({
+                                    browsers: [
+                                        '>1%',
+                                        'last 2 versions',
+                                        'Firefox ESR',
+                                        'not ie < 9'
+                                    ],
+                                    flexbox: 'no-2009'
+                                })
                             ]
                         }
                     },
-                    {loader: 'sass-loader'}
-                ]
+                    {loader: 'sass-loader'},
+                    
+                ],
             },
-            {   
-                test: /\.(css|scss|sass)$/,
-                loader: 'postcss-loader',
-                options: {
-                    ident: 'postcss',
-                    plugins: () => [
-                        require('postcss-flexbugs-fixes'),
-                        autoprefixer({
-                            browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-                            flexbox: 'no-2009'
-                        })
-                    ]
+            {
+                test: /\.less$/,
+                use: {
+                    loader: 'less-loader',
+                    options: {//自定义部分颜色
+                        modifyVars: {
+                            'primary-color': '#1DA57A',
+                            'link-color': '#1DA57A',
+                            'border-radius-base': '2px',
+                        },
+                        javascriptEnabled: true,
+                       
+                    }
                 }
             },
             {
@@ -110,20 +130,19 @@ let webpackConfig = {
     plugins: [
         new ClearWebpackPlugin(dist),
         new webpack.DefinePlugin({
-            __GIOID__: 11212112,
-            __client__: true
+            __client__: true,
+            
         }),
-        new ProvidePlugin({
+        ...htmlsPlugins,
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[name].css'
+        }),
+        new webpack.ProvidePlugin({
             $: 'jquery',
             React: 'react',
             ReactDOM: 'react-dom'
-        }),
-        // new HtmlWebpackPlugin({
-		// 	filename: `index.html`,
-		// 	template: `./src/template.ejs`,
-		// 	inject: true,
-        // })
-        ...htmlsPlugins
+        })
     ]
 };
 webpackConfig.devServer = {

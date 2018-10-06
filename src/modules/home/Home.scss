@@ -1,10 +1,129 @@
-.Home {
+
+$green: #48a63e;
+$green-border: #5bba52;
+$white: white;
+@mixin flex-box {
+    flex-direction: row
+    
+}
+body, html {
     background-color: #f0f0f0;
-    min-height: 100vh;
+    
+}
+
+.search-box {
+    background: $white;
+    border-bottom: 1px solid;
+}
+.Home {
+    height: 100%;
+    width: 100%;
+    display: box;
+    
     .container {
         margin: 0 auto;
-        width: 90%;
+        width: 85%;
     }
+    .marTop50 {
+        margin-top: 50px;
+    }
+    .flex-box {
+        display: flex;
+    }
+    .interest-util {
+        padding: 30px 0;
+        background: white;
+    }
+    header {
+        background: white;
+        // padding: 1px 0;
+        // height: 40px;
+        // line-height: 40px;
+        box-sizing: border-box;
+
+        ul {
+            line-height: 40px;
+            padding: 0;
+            margin: 0;
+        }
+        ul li {
+            margin: 0 10px;
+            height: 100%;
+            display: inline-block;
+            a {
+                color: #000000a6;
+                padding: 0 10px;
+                display: inline-block;
+                font-size: 13px;
+                // padding-bottom: 2px;
+                border-bottom: 2px solid transparent;
+                &:hover {
+                    color: $green;
+                    // padding-bottom: 0px;
+                    border-bottom: 2px solid $green-border;
+                }
+                
+            }
+        }
+        .flex-box {
+            width: 90%;
+            @include flex-box;
+            
+            .left-nav {
+                text-align: center;
+                flex: 0 0 300px;
+                background: #5bba52;
+                position: relative;
+                background: #1b5d15;;
+                h6 {
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                    font-size: 16px;
+                    color: white;
+                }
+
+                .technology-types {
+                    padding: 20px 0;
+                    position: absolute;
+                    width: 300px;
+                    background: white;
+                    ul {
+                        li {
+                            padding: 0 20px;
+                            border-left: 3px solid white;
+                            // border-top: 
+                            // border-right: none;
+                            text-align: left;
+                            
+                            
+                            &:hover {
+                                border-left-color: $green;
+                                background: #f5f5f5;
+                            }
+                            span {
+                                font-size: 13px;
+                                padding: 5px;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right-nav {
+                flex: 2;
+                font-size: 14px;
+                
+            }
+
+
+            
+            
+
+        }
+    }
+  
     .dialog-com {
         margin-top: 1rem;
         .boxCon {
@@ -31,3 +150,12 @@
         
     }
 }
+
+#components-layout-demo-top-side-2 .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255,255,255,.2);  
+    margin: 16px 28px 16px 0;
+    float: left;
+    
+  }

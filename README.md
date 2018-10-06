@@ -28,3 +28,12 @@
 ### React.Fragment是 React 中一个常见模式是为一个组件返回多个元素。 片段(fragments) 可以让你将子元素列表添加到一个分组中，并且不会在DOM中增加额外节点。 (http://www.css88.com/react/docs/fragments.html)
 
 ## axios 基本用法(参考文档： https://www.jianshu.com/p/b22d03dfe006)
+
+## 在webpack-dev-server 下实现自动刷新， package.json webpack-dev-server -env develoment , nodemon 之后验证
+
+## webpack.ProvidePlugin 全局定义要使用的一些文件库
+
+### 手动链接React 和 Redux, 手动连接并不可取， 它有以下两个明显的缺点：
+# 无法直接给里面的组件传递state和方法，
+# 任意的state的变化都会导致整个组件数的重置渲染，没有优化性能 
+# react-redux 就是专门为此设计的，它不仅可以给组件树中任一组件绑定state和方法，还可以进行性能优化，可以避免不必要的重新渲染。

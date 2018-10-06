@@ -1,0 +1,91 @@
+
+$green: #48a63e;
+$green-border: #5bba52;
+.body-desc {
+    width: 90%;
+    background: white;
+    display: flex;
+    &>div {
+        flex-direction: row;
+        // justify-content: space-between;
+        &.left {
+            border: 1px solid #eae6e6;
+            border-top: none;
+            padding: 10px 0 20px;
+            flex-grow: 0.6;
+            > div {
+                h5 {
+                    background: #e4e4e4;
+                    padding-left: 30px;
+                    line-height: 40px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    position: relative;
+
+                    .triangle {
+                        display: inline-block;
+                        position: absolute;
+                        top: 50%;
+                        right: 20px;
+                        margin-top:-5px;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        &:before {
+                            position: absolute;
+                            right: -9px;
+                            content: '';
+                            display: inline-block;
+                            width: 0;
+                            height: 0;
+                            border-style: solid;
+                        }
+                        &.down {
+                            border-width: 10px 10px 0;
+                            border-color: #000 transparent transparent;
+                            &:before {
+                                margin-top: -11px;
+                                border-width: 9px 9px 0;
+                                border-color: #e4e4e4 transparent transparent;
+                                
+                            }
+                        }
+
+                        &.up {
+                            border-width: 0 10px 10px;
+                            border-color: transparent transparent #000;
+                            &:before {
+                                margin-top: 2px;
+                                border-width: 0 9px 9px;
+                                border-color: transparent transparent #e4e4e4;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            ul {
+                margin: 5px 0 20px;
+                padding: 0;
+                li {
+                    padding: 10px 0;
+                    padding-left: 25px;
+                    font-size: 16px;
+                    border-top: 1px solid white;
+                    border-bottom: 1px solid white;
+                    border-left: 4px solid white;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        background: #f5f5f5;
+                        border-left-color: $green_border !important;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        &.right {
+            flex-grow: 2;
+        }
+    }
+}

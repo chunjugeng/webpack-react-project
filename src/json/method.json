@@ -1,0 +1,10 @@
+{
+    "jsProtogenesis": {
+        "string": [
+            "s.charAt()", "s.substring", "s.slice()", "s.indexOf()", "s.lastIndexOf()", "s.split()", "s.toUpperCase() 转小写", "s.place()", "S.toLowerCase() 转大写"
+        ],
+        "typeof": [
+            "undefined", "object", "boolean", "number", "string", "function"
+        ]
+    }
+}

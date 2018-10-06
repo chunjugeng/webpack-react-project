@@ -1,0 +1,66 @@
+[
+    {   
+        "path": "build",
+        "nav": "构建工具",
+        "name": "构建工具",
+        "list": [
+           { 
+                "name": "webpack",
+                "list": {
+                    "sub1": "xxxx11",
+                    "sub2": "xxxx22"
+                }
+            },
+            { 
+                "name": "gulp",
+                "list": []
+            },
+            { 
+                "name": "grunt",
+                "list": []
+            }
+        ]
+    },
+    {   
+        "path": "state",
+        "nav": "状态管理",
+        "name": "状态管理",
+        "list": [
+            { 
+                "name": "redux",
+                "list": []
+            },
+            { 
+                "name": "mobx",
+                "list": []
+            }
+        ],
+        "redux": {
+            "pureFunction": "纯函数是这样的一种函数，输入和输出数据流都是显示的，显示的意思是，函数与外界交换数据只有一个唯一渠道－－参数和返回值；函数从函数外部接受的所有输入信息都通过参数传递到该函数内部；函数输出到函数外部的所有信息都是通过返回值传递到函数外部。"
+        }
+    },
+    {   
+        "path": "mvc-mvvm",
+        "nav": "主流框架",
+        "name": "主流框架",
+        "list": [
+            { 
+                "name": "vue",
+                "list": []
+            },
+            { 
+                "name": "react",
+                "list": []
+            },
+            { 
+                "name": "angularjs",
+                "list": []
+            }
+        ],
+        "react": {
+            "virtualDOM": "虚拟DOM是一种编程概念，是指虚拟的视图在内存中，通过诸如reactDOM之类的库与“真实”的DOM保持同步",
+            "virtual": "react会在内存中维护一个虚拟DOM树，对这个树进行读和写，当然是虚拟DOM树，一旦数据发生变化， react会自动更新虚拟DOM， 新的虚拟DOM和旧的虚拟DOM 进行DIFF算法，得到一个patch， 然后将这个patch放到一个队列里， 最终批量更新这些patch到DOM中。参考文档(https://blog.csdn.net/qian_xiaoqian/article/details/53068860)"
+        }
+    }
+    
+]
