@@ -48,5 +48,4 @@ class About extends React.PureComponent {
 
 export default connect(state => {
     return ({ ...state })
-}, ActionCreator)
-    (About);
+}, ActionCreator)(About);

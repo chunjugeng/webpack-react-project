@@ -50,6 +50,7 @@ if (srcRoot.length) {
 }
 
 let webpackConfig = {
+    // context: path.join(__dirname, './src'),
     entry,
     devtool: isDev ? 'source-map' : false ,
     output: {

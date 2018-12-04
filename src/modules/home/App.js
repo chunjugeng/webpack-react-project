@@ -6,18 +6,29 @@ import InterestUtil from '~/commoms/InterestUtil';
 import * as ActionCreators from '~/stores/home/action';
 import './home.scss';
 
+import GoogleMap from '~/components/map/GoogleMap';
+import PieChart from '~/commoms/PieChart';
+import Footer from '~/layout/Footer';
+import axios from 'axios';
+
+
+
+
 class Home extends React.Component {
   constructor() {
     super();
   }
-
+  componentWillMount() {
+    axios.get('/feapi/errors').then(function(res) {
+    })
+  }
   componentDidMount() {
     this.props.initData();
    
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(this.props.addUtils,'props.addUtils', nextProps)
+    // console.log(this.props.addUtils,'props.addUtils', nextProps)
   }
   render() {
     return (
@@ -26,6 +37,8 @@ class Home extends React.Component {
           <div className="search-box">
             <div> search box </div>
           </div>
+
+          
           <header>
             <div className="container">
               <ul>
@@ -39,10 +52,18 @@ class Home extends React.Component {
           <div className="container marTop50">
             <ExperienceProject data={this.props.projectData} />
           </div>
+          <div className="" style={{'textAlign': 'center'}}>
+            <PieChart />
+          </div>
 
           <div className="interest-util marTop50">
-            <InterestUtil data={this.props.technologyTypes} onAddUtils={this.props.addUtils} utils={this.props.utils}/>
+            {/* <InterestUtil data={this.props.technologyTypes} onAddUtils={this.props.addUtils} utils={this.props.utils}/> */}
           </div>
+          
+
+          <GoogleMap/>
+
+          <Footer/>
 
         </div>
       </React.Fragment>
@@ -51,7 +72,6 @@ class Home extends React.Component {
 }
 
 export default connect(state=> {
-  // console.log(state, 'satte')
     return {...state};
   }, ActionCreators
 )(Home);

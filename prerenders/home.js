@@ -1,26 +1,25 @@
-
-import path from 'path';
-import App from '~/modules/home/App';
-import { Provider } from 'mobx-react'
-import { renderToString, renderToStaticMarkup } from 'react-dom/server'
-import axios from 'axios';
-
-import RegStore from '~/stores/Reg';
-import DialogStore from '~/stores/Dialog';
-
+import {createStore, applyMiddleware} from 'redux';
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server';
+import thunk from 'redux-thunk';
 import ejsRender from './ejs-render';
+import home from '~/stores/home/reducer';
+import App from '~/modules/home/App';
+                        
+const store = createStore(home, applyMiddleware(thunk));
 
 function render(currMod, cf) {
     let app = Object.create(null);
     cf.html = renderToString(
-        <Provider reg={RegStore} dialog={DialogStore}>
-            <App />
+        <Provider store={store}>
+            <App />     
         </Provider>
     );
 
     cf.outputFile = cf.htmlFile;
     cf.params = {
-        title: cf.title
+        title: cf.title,
+        baiduMap: true
     };
     ejsRender(cf);
 }
